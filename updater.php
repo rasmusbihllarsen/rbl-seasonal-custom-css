@@ -1,5 +1,4 @@
 <?php
-<?php
 class Rblarsen_Updater {
 	protected $file;
 	protected $plugin;
