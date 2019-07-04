@@ -100,4 +100,11 @@ function add_seasonal_css() {
 }
 
 add_filter('wp_head', 'add_seasonal_css');
+
+// Include our updater file
+include_once( plugin_dir_path( __FILE__ ) . 'updater.php');
+
+$updater = new Rblarsen_Updater( __FILE__ ); // instantiate our class
+$updater->set_username( 'rasmusbihllarsen' ); // set username
+$updater->set_repository( 'rbl-seasonal-custom-css' ); // set repo
 ?>
