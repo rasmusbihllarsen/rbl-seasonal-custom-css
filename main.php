@@ -93,13 +93,4 @@ function add_seasonal_css() {
   </style>';
 }
 add_filter('wp_head', 'add_seasonal_css');
-
-if( ! class_exists( 'Rblarsen_Updater' ) ){
-	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
-}
-$updater = new Rblarsen_Updater( __FILE__ );
-$updater->set_username( 'rasmusbihllarsen' );
-$updater->set_repository( 'rbl-seasonal-custom-css' );
-$updater->authorize( '84a6f2a85748fb1f763203066cebb155037455aa' ); // Your auth code goes here for private repos
-$updater->initialize();
 ?>
