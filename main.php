@@ -3,7 +3,7 @@
  * Plugin Name: Seasonal Custom CSS
  * Plugin URI: http://www.rasmusbihllarsen.com
  * Description: This plugin lets you add Custom CSS to your site, at specific times a year. Do you want some Christmas-theme in December? No problem!
- * Version: 0.9.0
+ * Version: 1.0.0
  * Author: Rasmus Bihl Larsen
  * Author URI: http://www.rasmusbihllarsen.com
  * License: GPL2
