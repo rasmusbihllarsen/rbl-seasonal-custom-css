@@ -3,7 +3,7 @@
  * Plugin Name: Seasonal Custom CSS
  * Plugin URI: http://www.rasmusbihllarsen.com
  * Description: This plugin lets you add Custom CSS to your site, at specific times a year. Do you want some Christmas-theme in December? No problem!
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Rasmus Bihl Larsen
  * Author URI: http://www.rasmusbihllarsen.com
  * License: GPL2
@@ -56,17 +56,11 @@ function create_scc_tables() {
   );
 }
 
-
-
-/** Step 1. */
 function seasonal_custom_admin_menu() {
 	add_options_page( 'Seasonal CSS', 'Seasonal CSS', 'manage_options', 'seasonal-custom-css', 'scc_admin_options' );
 }
-
-/** Step 2 (from text above). */
 add_action( 'admin_menu', 'seasonal_custom_admin_menu' );
 
-/** Step 3. */
 function scc_admin_options() {
   if ( !current_user_can( 'manage_options' ) )  {
     wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
@@ -98,14 +92,14 @@ function add_seasonal_css() {
   '.$sc_css.'
   </style>';
 }
-
 add_filter('wp_head', 'add_seasonal_css');
 
-// Include our updater file
-include_once( plugin_dir_path( __FILE__ ) . 'updater.php');
-
-$updater = new Rblarsen_Updater( __FILE__ ); // instantiate our class
-$updater->set_username( 'rasmusbihllarsen' ); // set username
-$updater->set_repository( 'rbl-seasonal-custom-css' ); // set repo
-$updater->initialize(); // initialize the updater
+if( ! class_exists( 'Rblarsen_Updater' ) ){
+	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
+}
+$updater = new Rblarsen_Updater( __FILE__ );
+$updater->set_username( 'rasmusbihllarsen' );
+$updater->set_repository( 'rbl-seasonal-custom-css' );
+$updater->authorize( '84a6f2a85748fb1f763203066cebb155037455aa' ); // Your auth code goes here for private repos
+$updater->initialize();
 ?>
