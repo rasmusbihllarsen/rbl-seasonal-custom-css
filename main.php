@@ -107,5 +107,5 @@ include_once( plugin_dir_path( __FILE__ ) . 'updater.php');
 $updater = new Rblarsen_Updater( __FILE__ ); // instantiate our class
 $updater->set_username( 'rasmusbihllarsen' ); // set username
 $updater->set_repository( 'rbl-seasonal-custom-css' ); // set repo
-$updater->initialize();
+$updater->initialize(); // initialize the updater
 ?>
